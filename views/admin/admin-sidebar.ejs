@@ -1,0 +1,57 @@
+<div
+  class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
+  style="width: 240px; min-height: 100vh"
+>
+  <a
+    href="/"
+    class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none"
+  >
+    <i class="fas fa-tools me-2"></i>
+    <span class="fs-4">Admin Panel</span>
+  </a>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a
+        href="/admin/dashboard"
+        class="nav-link <% if (active === 'dashboard') { %>active<% } else { %>text-white<% } %>"
+      >
+        <i class="fas fa-chart-line me-2"></i>
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a
+        href="/admin/orders"
+        class="nav-link <% if (active === 'orders') { %>active<% } else { %>text-white<% } %>"
+      >
+        <i class="fas fa-file-alt me-2"></i>
+        Orders
+      </a>
+    </li>
+    <li>
+      <a
+        href="/admin/cars"
+        class="nav-link <% if (active === 'cars') { %>active<% } else { %>text-white<% } %>"
+      >
+        <i class="fas fa-car me-2"></i>
+        Cars
+      </a>
+    </li>
+    <li>
+      <a
+        href="/admin/users"
+        class="nav-link <% if (active === 'users') { %>active<% } else { %>text-white<% } %>"
+      >
+        <i class="fas fa-users me-2"></i>
+        Users
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <div>
+    <span class="text-white-50 small"
+      >Logged in as <%= currentUser.username %></span
+    >
+  </div>
+</div>

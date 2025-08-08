@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoyalWheels</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Animate css link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Icon link -->
+    <link
+      rel="shortcut icon"
+      href="/images/staff/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- custom css link -->
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="bg-dark text-white py-0 mt-0 ">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white>
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">RoyalWheels</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/"><i class="fa-solid fa-house"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/services">services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+              <% if (locals.currentUser) { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/orders"><i class="fa-regular fa-user"></i> <strong><%= currentUser.username %></strong></a>
+                </li>
+                <li class="nav-item">
+                  <a href="/logout" class="btn btn-outline-warning">Logout</a>
+                </li>
+              <% } else { %>
+                <li class="nav-item">
+                  <a href="/login" class="btn btn-outline-primary">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/register" class="btn btn-outline-warning">Register</a>
+                </li>
+              <% } %>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>

@@ -1,0 +1,53 @@
+<%- include("../partials/header_nav.ejs") %>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- Gallery -->
+      <div class="col-md-6 mb-4">
+        <img src="/<%= car.image %>" class="img-fluid mb-3 rounded shadow-sm" alt="<%= car.make %>">
+        <div class="d-flex flex-wrap gap-2">
+          <% if (car.gallery && car.gallery.length) { %>
+            <% car.gallery.forEach(img => { %>
+              <img src="/<%= img %>" class="img-thumbnail" style="width: 200px;">
+            <% }) %>
+          <% } %>
+        </div>
+      </div>
+
+      <!-- Specs and Actions -->
+      <div class="col-md-6">
+        <h2><%= car.make %> <%= car.model %> <small class="text-muted">(<%= car.year %>)</small></h2>
+        <p class="text-muted"><%= car.location %> • <%= car.transmission %> • <%= car.fuel %></p>
+        <h4 class="text-warning mb-3">
+          <%= car.type === 'rent' ? `$${car.price}/day` : `$${car.price}` %>
+        </h4>
+
+        <p><%= car.description %></p>
+
+        <ul class="list-unstyled mb-4">
+          <li><strong>Seats:</strong> <%= car.seats %></li>
+          <li><strong>Mileage:</strong> <%= car.mileage %> km</li>
+          <li><strong>Color:</strong> <%= car.color %></li>
+          <li><strong>Features:</strong> <%= car.features?.join(', ') %></li>
+        </ul>
+
+        <% if (car.type === 'rent') { %>
+        <form action="/rent/<%= car.id %>" method="POST">
+          <button class="btn btn-warning">Rent This Car</button>
+        </form>
+      <% } else { %>
+        <form action="/buy/<%= car.id %>" method="POST">
+          <button class="btn btn-success">Buy This Car</button>
+        </form>
+      <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+<button onclick="topFunction()" id="backToTopBtn" title="Go to top">
+  ↑
+</button>
+
+<%- include("../partials/footer.ejs") %>

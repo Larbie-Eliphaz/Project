@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <style>
+        body {
+            background: #f0f8ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .success-container {
+            background: #fff;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .success-icon {
+            font-size: 3rem;
+            color: #4BB543;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
+        p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        a {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: #4BB543;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        a:hover {
+            background: #388e2c;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">&#10004;</div>
+        <h1>Success!</h1>
+        <p>
+            <%= message %>
+        </p>
+        <a href="/">Let's go home</a>
+    </div>
+</body>
+</html>

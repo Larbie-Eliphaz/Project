@@ -1,0 +1,83 @@
+<head>
+  <link rel="stylesheet" href="../css/register.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<div class="container">
+  <form action="/register" method="POST">
+    <h1>Create An Account With Us</h1>
+
+    <div class="social-login">
+      <button type="button" class="google-btn">
+        <i class="fab fa-google"></i>
+        <span>Sign in with Google</span>
+      </button>
+      <button type="button" class="apple-btn">
+        <i class="fab fa-apple"></i>
+        <span>Sign in with Apple</span>
+      </button>
+      <button type="button" class="twitter-btn">
+        <i class="fab fa-twitter"></i>
+        <span>Sign in with Twitter</span>
+      </button>
+    </div>
+
+    <!-- Username -->
+    <div class="form-input">
+      <input type="text" placeholder="firstname" required name="firstname"/>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    </div>
+    <div class="form-input">
+      <input type="text" placeholder="lastname" required name="lastname"/>
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    </div>
+
+    <!-- Email -->
+    <div class="form-input">
+      <input type="email" placeholder="Email" required name="email"/>
+      <!-- Your SVG mail animation here -->
+    </div>
+
+    <!-- Password -->
+    <div class="form-input">
+      <input type="password" placeholder="Password" required name="password"/>
+      <!-- Your SVG lock animation here -->
+    </div>
+
+    <!-- Contact -->
+    <div class="form-input">
+      <input type="tel" placeholder="Contact" required name="phone"/>
+      <!-- Your SVG phone animation here -->
+    </div>
+
+    <!-- Location -->
+    <div class="form-input">
+      <input type="text" placeholder="Country" required name="country"/>
+      <!-- Your SVG location animation here -->
+    </div>
+
+    <!-- Profile Image  -->
+    <div class="form-input">
+      <input type="file" accept="image/*" required />
+    </div>
+
+    <!-- ID Card  -->
+    <div class="form-input">
+      <input type="text" placeholder="ID Card Number" required name="idcard"/>
+      <i class="fa fa-id-card" aria-hidden="true"></i>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn">Submit</button>
+
+    <!-- Login Redirect -->
+    <div class="login-link">
+      <p>
+        Already Have an Account? <a href="/login" class="login-link">Login</a>
+      </p>
+    </div>
+  </form>
+</div>

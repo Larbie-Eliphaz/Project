@@ -1,0 +1,99 @@
+<%- include("../partials/header_nav.ejs") %>
+
+<section class="py-4 bg-light">
+  <div class="container">
+    <form method="GET" action="/browse">
+      <div class="row g-3">
+        <div class="col-md-2">
+          <select class="form-select" name="type">
+            <option value="">All Types</option>
+            <option value="rent">Rent</option>
+            <option value="buy">Buy</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" name="make">
+            <option value="">All Brands</option>
+            <option>BMW</option>
+            <option>Kia</option>
+            <option>Audi</option>
+            <option>Ford</option>
+            <option>Jeep</option>
+            <option>Mazda</option>
+            <option>Honda</option>
+            <option>Lexus</option>
+            <option>Tesla</option>
+            <option value="Tri-cycle">Pragya</option>
+            <option>Subaru</option>
+            <option>Toyota</option>
+            <option>Nissan</option>
+            <option>Hyundai</option>
+            <option>Tri-cycle</option>
+            <option value="Kantanka">Kantanka ⭐</option>
+            <option>Chevrolet</option>
+            <option>Mercedes-Benz</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" name="transmission">
+            <option value="">Transmission</option>
+            <option>Automatic</option>
+            <option>Manual</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <select class="form-select" name="sort">
+            <option value="">Sort By</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="year-desc">Newest First</option>
+            <option value="year-asc">Oldest First</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <button class="btn btn-warning w-100">Apply Filters</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Car listings -->
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <% cars.forEach(car => { %>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <img
+            src="<%= car.image %>"
+            class="card-img-top"
+            alt="<%= car.make %>"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= car.make %> <%= car.model %> <%= car.year %>
+            </h5>
+            <p class="card-text">
+              <%= car.transmission %> • <%= car.fuel %> • <%= car.seats %> seats
+            </p>
+            <p class="text-primary fw-bold">
+              <%= car.type === 'rent' ? `$${car.price}/day` : `$${car.price}` %>
+            </p>
+            <a href="/cars/<%= car.id %>" class="btn btn-outline-primary btn-sm"
+              >View Details</a
+            >
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<button onclick="topFunction()" id="backToTopBtn" title="Go to top">
+  ↑
+</button>
+
+<%- include("../partials/footer.ejs") %>

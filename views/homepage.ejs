@@ -1,0 +1,56 @@
+<%- include('./partials/header_nav.ejs') %>
+<div class="hero">
+    <div class="overlay"></div>
+    <div class="content animate__animated animate__fadeInRightBig animate__slow">
+    <h1 class="">Find Your Drive. Rent or Own the Road</h1>
+    <p class="explain">
+      Browse top-rated cars for rent and sale where <br />
+      convenience meets performance.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="/browse" class="btn btn-primary" id="btn">Explore Cars</a>
+    </div>
+    </div>
+</div>
+
+<div class="container py-5">
+  <h2 class="text-center mb-4 text-blue-100">Featured Cars</h2>
+  <p class="text-center mb-5">Explore our top-rated cars for rent and sale</p>
+  <div class="row gy-4">
+    <% featuredCars.forEach(car => { %>
+    <!-- Card Start -->
+    <div class="col-md-4">
+      <div
+        class="card h-100 shadow-sm rounded overflow-hidden flex flex-col"
+        style="height: 350px"
+      >
+        <img
+          src="<%=car.image%>"
+          class="card-img-top object-cover"
+          style="height: 250px"
+          alt="Image"
+        />
+        <div class="card-body flex-grow flex flex-col justify-between">
+          <h5 class="card-title text-xl font-semibold mb-2"><%= car.make %> <%= car.model %></h5>
+          <p class="card-text text-gray-600">
+            <b><%=car.year%> ⭕ <%= car.transmission %> ⭕ <%= car.fuel %></b>
+          </p>
+          <h5 class="card-title text-xl font-semibold mb-2">$<%= car.price %></h5>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <button class="btn btn-primary w-full"><%= car.type %> me</button>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+    <!-- Card End -->
+  </div>
+</div>
+<button onclick="topFunction()" id="backToTopBtn" title="Go to top">
+  ↑
+</button>
+<%- include('./partials/recommendation.ejs') %>
+<%- include('./partials/banner.ejs') %>
+<%- include('./partials/partners.ejs') %>
+<%- include('./partials/footer.ejs') %>

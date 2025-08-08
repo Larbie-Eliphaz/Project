@@ -1,0 +1,66 @@
+<%- include("../partials/header_nav.ejs") %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-lg-2 p-0">
+      <%- include('admin-sidebar', { active: 'orders' }) %>
+    </div>
+    <div class="col-md-9 col-lg-10 p-4">
+      <!-- Main admin content goes here -->
+       <section class="py-5">
+  <div class="container">
+    <h3 class="mb-4">Manage Orders</h3>
+
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>User</th>
+          <th>Car</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Price</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% orders.forEach(order => { %>
+          <tr>
+            <td><%= order.firstname %>, <%= order.id %></td>
+            <td>
+              <a href="/cars/<%= order.car_id %>">
+                <%= order.make %> <%= order.model %> <%= order.year %>
+              </a>
+            </td>
+            <td><%= order.order_type %></td>
+            <td>
+              <span class="badge bg-<%= 
+                order.status === 'pending' ? 'secondary' :
+                order.status === 'confirmed' ? 'success' : 
+                'danger' %>">
+                <%= order.status %>
+              </span>
+            </td>
+            <td><%= new Date(order.created_at).toLocaleString() %></td>
+            <td>$<%= order.price %></td>
+            <td>
+              <form action="/admin/orders/<%= order.id %>/status" method="POST">
+                <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
+                  <option value="pending" <%= order.status === 'pending' ? 'selected' : '' %>>Pending</option>
+                  <option value="confirmed" <%= order.status === 'confirmed' ? 'selected' : '' %>>Confirmed</option>
+                  <option value="cancelled" <%= order.status === 'cancelled' ? 'selected' : '' %>>Cancelled</option>
+                </select>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+

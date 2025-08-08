@@ -1,0 +1,24 @@
+<%- include('../partials/header_nav.ejs') -%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-lg-2 p-0">
+      <%- include('admin-sidebar', { active: 'dashboard' }) %>
+    </div>
+    <div class="col-md-9 col-lg-10 p-4">
+      <!-- Main admin content goes here -->
+       <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col"><div class="card bg-primary text-white p-3"><h5>Total Cars</h5><h2><%= stats.totalCars %></h2></div></div>
+        <div class="col"><div class="card bg-success text-white p-3"><h5>Available Cars</h5><h2><%= stats.availableCars %></h2></div></div>
+        <div class="col"><div class="card bg-dark text-white p-3"><h5>Users</h5><h2><%= stats.totalUsers %></h2></div></div>
+        <div class="col"><div class="card bg-info text-white p-3"><h5>Total Orders</h5><h2><%= stats.totalOrders %></h2></div></div>
+        <div class="col"><div class="card bg-warning text-white p-3"><h5>Pending Orders</h5><h2><%= stats.pendingOrders %></h2></div></div>
+        <div class="col"><div class="card bg-success text-white p-3"><h5>Confirmed Orders</h5><h2><%= stats.confirmedOrders %></h2></div></div>
+        <div class="col"><div class="card bg-danger text-white p-3"><h5>Cancelled Orders</h5><h2><%= stats.cancelledOrders %></h2></div></div>
+    </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+</div>

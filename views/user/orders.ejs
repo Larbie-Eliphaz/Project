@@ -1,0 +1,40 @@
+<%- include("../partials/header_nav.ejs") %>
+
+<section class="py-5">
+  <div class="container">
+    <h3 class="mb-4">My Orders</h3>
+
+    <% if (orders.length === 0) { %>
+      <div class="alert alert-info">You haven't placed any orders yet.</div>
+    <% } else { %>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <% orders.forEach(order => { %>
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="<%= order.image %>" class="img-fluid rounded-start" alt="Car">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= order.make %> <%= order.model %> <%= order.year %></h5>
+                    <p class="card-text text-muted">Type: <strong><%= order.order_type %></strong></p>
+                    <p class="card-text">Status: 
+                      <span class="badge bg-<%= order.status === 'pending' ? 'secondary' : 'success' %>">
+                        <%= order.status %>
+                      </span>
+                    </p>
+                    <p class="card-text"><small class="text-muted">Ordered on <%= new Date(order.created_at).toLocaleDateString() %></small></p>
+                    <a href="/cars/<%= order.car_id %>" class="btn btn-outline-primary btn-sm mt-2">View Car</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include("../partials/footer.ejs") %>

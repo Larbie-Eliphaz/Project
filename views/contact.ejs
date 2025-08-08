@@ -1,0 +1,117 @@
+<%- include('./partials/header_nav.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact Form</title>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fadeInUp {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-white text-body">
+  <!-- Contact -->
+  <section id="contact" class="p-5 bg-light animate-fadeInUp">
+    <div class="container">
+      <h2 class="h2 fw-bold mb-4 text-primary">Contact Us</h2>
+      <p class="mb-4">
+        📍 Accra, Ghana<br />
+        📞 +233 54 258 5406<br />
+        📧 info@Royalwheels.org
+      </p>
+
+      <!-- Contact Form -->
+      <form id="contactForm" class="mt-4" action="/contact" method="post">
+        <div class="mb-3">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            class="form-control p-2"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            class="form-control p-2"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            class="form-control p-2"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary px-4 py-2"
+        >
+          Send Message
+        </button>
+      </form>
+
+      <!-- Confirmation Message -->
+      <% if(locals.messsage) {%>
+        <div id="confirmation" class="d-none text-success mt-4 fw-semibold animate-fadeIn">
+          ✅ Your message has been sent successfully!
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="p-5 animate-fadeInUp">
+    <div class="container">
+      <h2 class="h2 fw-bold mb-4 text-primary">Find Us</h2>
+      <div class="ratio ratio-16x9">
+        <iframe
+          src="https://www.google.com/maps?q=Accra,+Ghana&output=embed"
+          frameborder="0"
+          style="border: 0"
+          allowfullscreen
+          loading="lazy"
+          class="rounded shadow"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- JavaScript for confirmation -->
+  <script>
+    const form = document.getElementById("contactForm");
+    const confirmation = document.getElementById("confirmation");
+
+    form.addEventListener("submiit", function (e) {
+      e.preventDefault();
+      confirmation.classList.remove("d-none");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
+<button onclick="topFunction()" id="backToTopBtn" title="Go to top">
+  ↑
+</button>
+  <%- include('./partials/footer.ejs') %>
+</body>
